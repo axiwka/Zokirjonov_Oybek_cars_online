@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface ColourRepo extends JpaRepository<Colour, Integer> {
 
-    @Query(nativeQuery = true, value = "select c2.id,\n" +
-            "       c2.name\n" +
-            "from cars c join cars_colours cc on c.id = cc.cars_id\n" +
-            "join colour c2 on c2.id = cc.colours_id\n" +
-            "where c.id = :id")
+    @Query(nativeQuery = true, value = "select color.id ,\n" +
+            "             color.colour_name \n" +
+            "            from cars  join cars_colours cc on cars.id = cc.cars_id\n" +
+            "                join colour color on color.id = cc.colours_id\n" +
+            "            where cars.id = :id")
     List<Colour> getAll(Integer id);
 }

@@ -24,6 +24,7 @@ public class CarService {
 
 
     public List<CarProjection> getAll() {
+        System.out.println("Hello Service");
         return repo.getAllCars();
     }
 

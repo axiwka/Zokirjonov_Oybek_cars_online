@@ -12,20 +12,20 @@ import java.util.List;
 public interface CarsCommentRepo extends JpaRepository<CarsComment,Integer> {
 
     @Query(nativeQuery = true, value = "select\n" +
-            "    c.id,\n" +
-            "    c.comment,\n" +
-            "    c.users_id userId,\n" +
-            "    u.full_name fullName\n" +
-            "    from cars_comment c join users u on u.id = c.users_id where c.cars_Id=:carId ",
+            "        c.id,\n" +
+            "        c.comment,\n" +
+            "        c.user_id userId,\n" +
+            "        u.full_name fullName\n" +
+            "        from cars_comment c join users u on u.id = c.user_id where c.car_id=:carId",
     countQuery = "select count(*) from cars_comment"
     )
     Page<CarsCommandProjection> getCarsCommentByCarId(Pageable page, Integer carId);
 
     @Query(nativeQuery = true, value = "select\n" +
-            "    c.id,\n" +
-            "    c.comment,\n" +
-            "    c.users_id userId,\n" +
-            "    u.full_name fullName\n" +
-            "    from cars_comment c join users u on u.id = c.users_id where c.users_id=:userId")
+            "        c.id,\n" +
+            "        c.comment,\n" +
+            "        c.user_id userId,\n" +
+            "        u.full_name fullName\n" +
+            "        from cars_comment c join users u on u.id = c.user_id where c.user_id=:userId")
     List<CarsCommandProjection> getCarsCommentByUserId(Integer userId);
 }

@@ -8,18 +8,18 @@ import java.util.Optional;
 
 public interface CarRepo extends JpaRepository<Cars,Integer> {
     @Query(nativeQuery = true,value = "select c.id,\n" +
-            "       c.city,\n" +
-            "       c.year,\n" +
-            "       c.price,\n" +
-            "       t.id transmissionId,\n" +
-            "       t.transmission transmissionName,\n" +
-            "       b.id brandId,\n" +
-            "       b.name brandName,\n" +
-            "       c.car_name carName,\n" +
-            "       c.car_description carDescription\n" +
-            "from cars as c\n" +
-            "join brand b on b.id = c.brand_id\n" +
-            "join transmission t on c.transmission_id = t.id")
+            "                  c.city,\n" +
+            "                  c.year,\n" +
+            "                  c.price,\n" +
+            "                  t.id transmissionId,\n" +
+            "                  t.transmission_name transmissionName,\n" +
+            "                  b.id brandId,\n" +
+            "                  b.brand_name brandName,\n" +
+            "                  c.car_name carName,\n" +
+            "                  c.car_description carDescription\n" +
+            "               from cars as c\n" +
+            "               join brand b on b.id = c.brand_id\n" +
+            "               join transmission t on c.transmission_id = t.id")
     List<CarProjection> getAllCars();
 
     @Query(nativeQuery = true,value = "select c.id,\n" +
@@ -29,9 +29,9 @@ public interface CarRepo extends JpaRepository<Cars,Integer> {
             "       c2.id colourId,\n" +
             "       c2.name colourName,\n" +
             "       t.id transmissionId,\n" +
-            "       t.transmission transmissionName,\n" +
+            "       t.transmission_name transmissionName,\n" +
             "       b.id brandId,\n" +
-            "       b.name brandName,\n" +
+            "       b.brand_name brandName,\n" +
             "       c.car_name carName,\n" +
             "       c.car_description carDescription\n" +
             "from cars as c join cars_colour cc on c.id = cc.cars_id\n" +
@@ -45,9 +45,9 @@ public interface CarRepo extends JpaRepository<Cars,Integer> {
             "                   c.year,\n" +
             "                   c.price,\n" +
             "                   t.id transmissionId,\n" +
-            "                   t.transmission transmissionName,\n" +
+            "                   t.transmission_name transmissionName,\n" +
             "                   b.id brandId,\n" +
-            "                   b.name brandName,\n" +
+            "                   b.brand_name brandName,\n" +
             "                   c.car_name carName,\n" +
             "                   c.car_description carDescription\n" +
             "                   from cars c\n" +
@@ -60,9 +60,9 @@ public interface CarRepo extends JpaRepository<Cars,Integer> {
             "       c.year,\n" +
             "       c.price,\n" +
             "       t.id              transmissionId,\n" +
-            "       t.transmission    transmissionName,\n" +
+            "       t.transmission_name    transmissionName,\n" +
             "       b.id              brandId,\n" +
-            "       b.name            brandName,\n" +
+            "       b.brand_name            brandName,\n" +
             "       c.car_name        carName,\n" +
             "       c.car_description carDescription\n" +
             "from cars as c\n" +

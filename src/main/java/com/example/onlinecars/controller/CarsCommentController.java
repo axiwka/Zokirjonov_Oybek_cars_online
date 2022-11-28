@@ -23,10 +23,10 @@ import java.util.List;
 public class CarsCommentController {
     private final CarsCommentService carsCommentService;
 
-    @GetMapping("/carId/{carId}/page{page}/size/{size}")
+    @GetMapping("/carId/{carId}/page/{page}/size/{size}")
     public HttpEntity<?> getAllByCarId(@PathVariable Integer carId, @PathVariable Integer page, @PathVariable Integer size){
         Page<CarsCommandProjection> carsCommandProjectionList = carsCommentService.pagination(carId,page,size);
-        return ResponseEntity.ok(new ApiResponse("List",true,carsCommandProjectionList));
+        return ResponseEntity.ok(new ApiResponse("List",true,carsCommandProjectionList.getContent()));
     }
     @GetMapping("/userId/{id}")
     public HttpEntity<?> getAllByUserId(@PathVariable Integer id){

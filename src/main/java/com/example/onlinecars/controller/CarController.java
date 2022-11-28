@@ -25,7 +25,9 @@ public class CarController {
 
     @GetMapping()
     public HttpEntity<?> getAll(){
+        System.out.println("Hello controller ");
         List<CarProjection> list = service.getAll();
+        System.out.println("Car List -> " + list);
         return ResponseEntity.ok(new ApiResponse("Car List",true,list));
     }
 

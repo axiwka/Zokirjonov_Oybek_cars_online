@@ -1,6 +1,7 @@
 package com.example.onlinecars.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
@@ -58,10 +58,10 @@ public class Cars {
     @ManyToOne(fetch = FetchType.LAZY)
     private Users user;
 
+
     @Column(updatable = false, nullable = false)
     @CreationTimestamp
     private Timestamp createdAt;
-
     @UpdateTimestamp
     @Column(nullable = false)
     private Timestamp updatedAt;

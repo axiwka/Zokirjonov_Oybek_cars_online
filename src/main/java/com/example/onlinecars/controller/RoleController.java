@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/roles")
 
 public class RoleController {
-    private final RoleService roleService;
+    private final  RoleService roleService;
 
     @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
     @GetMapping
