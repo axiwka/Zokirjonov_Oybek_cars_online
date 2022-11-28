@@ -30,4 +30,7 @@ public class Colour {
     @Column(nullable = false)
     private Timestamp updatedAt;
 
+    public Colour(String colourName) {
+        this.colourName = colourName;
+    }
 }

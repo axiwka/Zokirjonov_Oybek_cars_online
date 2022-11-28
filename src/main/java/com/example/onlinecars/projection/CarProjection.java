@@ -8,15 +8,25 @@ import java.util.List;
 
 public interface CarProjection {
     Integer getId();
+
     String getCity();
+
     Integer getYear();
+
     @Value("#{@colourRepo.getAll(target.id)}")
-    List<Colour> getColors();
+    List<ColourProjection> getColors();
+
     Integer getTransmissionId();
+
     String getTransmissionName();
+
     Integer getBrandId();
+
     String getBrandName();
+
     String getCarName();
+
     BigDecimal getPrice();
+
     String getCarDescription();
 }
